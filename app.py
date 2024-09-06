@@ -15,7 +15,7 @@ def is_inside(point, rect_pt1, rect_pt2):
 def clear_all():
     canvas1[:]=(0,0,0)
 
-genai.configure(api_key="AIzaSyD3qtvPBC0yZq3RFoAwsJHlp4jIY6yGnzQ")
+genai.configure(api_key="your api key")
 # The Gemini 1.5 models are versatile and work with both text-only and multimodal prompts
 model = genai.GenerativeModel('gemini-1.5-flash')
 
