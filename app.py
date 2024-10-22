@@ -83,7 +83,6 @@ while cap.isOpened():
 
         #selection mode
         if index_tip[1]>middle_tip[1]:
-            # print("Selection Mode",landmark_list[8],landmark_list[12])
             Penselected = False ;Eraser=False
             prev_x,prev_y=(-1,-1)
         else:
@@ -123,16 +122,12 @@ while cap.isOpened():
     frame = cv.bitwise_and(frame, imgInv)
     frame = cv.bitwise_or(frame, canvas1)
     frame = cv.cvtColor(frame,cv.COLOR_BGR2RGB)
-    # frame = cv.flip(frame,1)
     frame[0:120,0:1280]=header
     if cv.waitKey(1) & 0xFF == ord('a'):
         pil_img = Image.fromarray(canvas1)
         result = model.generate_content(["Solve This math equation in the image",pil_img])
         print(result.text)
         
-        # cv.imwrite("output_image.jpg",canvas1)
-        # cv.imwrite("ot.jpg",result)
-        # cv.putText(canvas2, result, (200, 200), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
         print(result)
     cv.imshow("Paint_window",frame)
